@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "rede_scoial"  # Corrigido o nome
+version = "0.1.0"
+description = "A social networking project using FastAPI and Tortoise ORM."  # Add a brief description
+authors = ["pablorodrigs <pablorodrigs6@gmail.com>"]
+readme = "README.md"
+packges = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["standard"], version = "^0.115.2"}
+tortoise-orm = {extras = ["asyncpg"], version = "^0.21.7"}
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.13.0"
+
+[tool.taskipy.tasks]
+dev = "fastapi dev dev.py"
+prod = "uvicorn src.api.application:app --host 0.0.0.0 --port 8000"  # Removido --reload e corrigido --p para --port
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,4 @@
+- integrar com toroise orm
+- criar mode de usuario
+- rota de cadastro 
+- rota de login
